@@ -4,6 +4,7 @@ from .serializers import ( BookSerializer, AuthorSerializer, CategorySerializer,
 from .permissions import IsAdminOrReadOnly
 
 
+
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.select_related('author', 'category').all()
 

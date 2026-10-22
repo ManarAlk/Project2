@@ -31,7 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
+    'material',
+    'material.admin',
+
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -44,6 +46,8 @@ INSTALLED_APPS = [
     'accounts',
 ]
 
+X_FRAME_OPTIONS = "SAMEORIGIN"
+SILENCED_SYSTEM_CHECKS = ["security.W019"]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -140,7 +144,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
@@ -149,3 +152,32 @@ MAILERS = {
         "BACKEND": "django.core.mail.backends.console.EmailBackend",
     },
 }
+
+
+MATERIAL_ADMIN_SITE = {
+    'HEADER': 'Library Management System',
+    'TITLE': 'Library Admin',
+
+
+
+    'MAIN_BG_COLOR': '#673AB7',
+    'MAIN_HOVER_COLOR': '#512DA8',
+
+    'SHOW_THEMES': True,
+    'SHOW_COUNTS': True,
+
+    'APP_ICONS': {
+        'books': 'book',
+    },
+
+    'MODEL_ICONS': {
+        'book': 'menu_book',
+        'author': 'person',
+        'category': 'category',
+    },
+}
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

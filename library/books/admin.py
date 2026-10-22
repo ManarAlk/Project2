@@ -1,9 +1,13 @@
+
 from django.contrib import admin
+from django.contrib.admin import ModelAdmin, register
 from .models import Book, Author, Category
 
 
-@admin.register(Book)
-class BookAdmin(admin.ModelAdmin):
+@register(Book)
+class MaterialBookAdmin(ModelAdmin):
+    icon_name = 'book'
+
     list_display = (
         'title',
         'author',
@@ -21,13 +25,17 @@ class BookAdmin(admin.ModelAdmin):
     )
 
 
-@admin.register(Author)
-class AuthorAdmin(admin.ModelAdmin):
+@register(Author)
+class MaterialAuthorAdmin(ModelAdmin):
+    icon_name = 'person'
+
     list_display = ('name', 'birth_date')
     search_fields = ('name',)
 
 
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+@register(Category)
+class MaterialCategoryAdmin(ModelAdmin):
+    icon_name = 'category'
+
     list_display = ('name',)
     search_fields = ('name',)
